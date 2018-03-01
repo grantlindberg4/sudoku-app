@@ -12,6 +12,9 @@
 		3438C75920487E9800A53C91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3438C75720487E9800A53C91 /* Main.storyboard */; };
 		3438C75B20487E9800A53C91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3438C75A20487E9800A53C91 /* Assets.xcassets */; };
 		3438C75E20487E9800A53C91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3438C75C20487E9800A53C91 /* LaunchScreen.storyboard */; };
+		3438C76620487FBF00A53C91 /* SudokuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438C76520487FBE00A53C91 /* SudokuView.swift */; };
+		3438C76820487FFC00A53C91 /* simple.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3438C76720487FFC00A53C91 /* simple.plist */; };
+		3438C76A2048800A00A53C91 /* hard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3438C7692048800900A53C91 /* hard.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		3438C75A20487E9800A53C91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3438C75D20487E9800A53C91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3438C75F20487E9800A53C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3438C76520487FBE00A53C91 /* SudokuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudokuView.swift; sourceTree = "<group>"; };
+		3438C76720487FFC00A53C91 /* simple.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = simple.plist; sourceTree = "<group>"; };
+		3438C7692048800900A53C91 /* hard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hard.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,9 @@
 				3438C75A20487E9800A53C91 /* Assets.xcassets */,
 				3438C75C20487E9800A53C91 /* LaunchScreen.storyboard */,
 				3438C75F20487E9800A53C91 /* Info.plist */,
+				3438C7692048800900A53C91 /* hard.plist */,
+				3438C76720487FFC00A53C91 /* simple.plist */,
+				3438C76520487FBE00A53C91 /* SudokuView.swift */,
 			);
 			path = Sudoku;
 			sourceTree = "<group>";
@@ -123,7 +132,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3438C76820487FFC00A53C91 /* simple.plist in Resources */,
 				3438C75E20487E9800A53C91 /* LaunchScreen.storyboard in Resources */,
+				3438C76A2048800A00A53C91 /* hard.plist in Resources */,
 				3438C75B20487E9800A53C91 /* Assets.xcassets in Resources */,
 				3438C75920487E9800A53C91 /* Main.storyboard in Resources */,
 			);
@@ -136,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3438C76620487FBF00A53C91 /* SudokuView.swift in Sources */,
 				3438C75620487E9800A53C91 /* ViewController.swift in Sources */,
 				3438C75420487E9800A53C91 /* AppDelegate.swift in Sources */,
 			);
