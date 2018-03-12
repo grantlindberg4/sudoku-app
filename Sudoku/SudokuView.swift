@@ -36,17 +36,17 @@ class SudokuView: UIView {
         let row = Int((tapPoint.y - gridOrigin.y)/d)
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let puzzle = appDelegate.sudoku
+        let puzzle = appDelegate.sudoku
         
-//        if  0 <= col && col < 9 && 0 <= row && row < 9 {              // if inside puzzle bounds
-//            if (!puzzle.numberIsFixedAt(row: row, column: col)) {       // and not a "fixed number"
-//                if (row != selected.row || col != selected.column) {  // and not already selected
-//                    selected.row = row                                // then select cell
-//                    selected.column = col
-//                    setNeedsDisplay()                                 // request redraw
-//                }
-//            }
-//        }
+        if  0 <= col && col < 9 && 0 <= row && row < 9 {              // if inside puzzle bounds
+            if (!puzzle!.numberIsFixedAt(row: row, column: col)) {       // and not a "fixed number"
+                if (row != selected.row || col != selected.column) {  // and not already selected
+                    selected.row = row                                // then select cell
+                    selected.column = col
+                    setNeedsDisplay()                                 // request redraw
+                }
+            }
+        }
     }
  
     //
@@ -118,7 +118,7 @@ class SudokuView: UIView {
         // Fetch Sudoku puzzle model object from app delegate.
         //
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let puzzle = appDelegate.sudoku
+        let puzzle = appDelegate.sudoku
 
         //
         // Fetch/compute font attribute information.
@@ -142,42 +142,41 @@ class SudokuView: UIView {
         //
         // Fill in puzzle numbers.
         //
-//        for row in 0 ..< 9 {
-//            for col in 0 ..< 9 {
-//                let number = puzzle.numberAt(row: row, column: col)
-//                if (number > 0) {
-//                    var attributes : [NSAttributedStringKey : NSObject]? = nil
-//                    if puzzle.numberIsFixedAt(row: row, column: col) {
-//                        attributes = fixedAttributes
-//                    } else if puzzle.isConflictingEntryAt(row: row, column: col) {
-//                        attributes = conflictAttributes
-//                    } else {
-//                        attributes = userAttributes
-//                    }
-//                    let text = "\(number)" as NSString
-//                    let textSize = text.size(withAttributes: attributes)
-//                    let x = gridOrigin.x + CGFloat(col)*d + 0.5*(d - textSize.width)
-//                    let y = gridOrigin.y + CGFloat(row)*d + 0.5*(d - textSize.height)
-//                    let textRect = CGRect(x: x, y: y, width: textSize.width, height: textSize.height)
-//                    text.draw(in: textRect, withAttributes: attributes)
-//                } else if puzzle.anyPencilSetAt(row: row, column: col) {
-//                    let s = d/3
-//                    for n in 1 ... 9 {
-//                        if puzzle.isSetPencil(n, row: row, column: col) {
-//                            let r = (n - 1) / 3
-//                            let c = (n - 1) % 3
-//                            let text : NSString = "\(n)" as NSString
-//                            let textSize = text.size(withAttributes: pencilAttributes)
-//                            let x = gridOrigin.x + CGFloat(col)*d + CGFloat(c)*s + 0.5*(s - textSize.width)
-//                            let y = gridOrigin.y + CGFloat(row)*d + CGFloat(r)*s + 0.5*(s - textSize.height)
-//                            let textRect = CGRect(x: x, y: y, width: textSize.width, height: textSize.height)
-//                            text.draw(in: textRect, withAttributes: pencilAttributes)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-        
+        for row in 0 ..< 9 {
+            for col in 0 ..< 9 {
+                let number = puzzle!.numberAt(row: row, column: col)
+                if (number > 0) {
+                    var attributes : [NSAttributedStringKey : NSObject]? = nil
+                    if puzzle!.numberIsFixedAt(row: row, column: col) {
+                        attributes = fixedAttributes
+                    } else if puzzle!.isConflictingEntryAt(row: row, column: col) {
+                        attributes = conflictAttributes
+                    } else {
+                        attributes = userAttributes
+                    }
+                    let text = "\(number)" as NSString
+                    let textSize = text.size(withAttributes: attributes)
+                    let x = gridOrigin.x + CGFloat(col)*d + 0.5*(d - textSize.width)
+                    let y = gridOrigin.y + CGFloat(row)*d + 0.5*(d - textSize.height)
+                    let textRect = CGRect(x: x, y: y, width: textSize.width, height: textSize.height)
+                    text.draw(in: textRect, withAttributes: attributes)
+                } else if puzzle!.anyPencilSetAt(row: row, column: col) {
+                    let s = d/3
+                    for n in 1 ... 9 {
+                        if puzzle!.isSetPencil(n, row: row, column: col) {
+                            let r = (n - 1) / 3
+                            let c = (n - 1) % 3
+                            let text : NSString = "\(n)" as NSString
+                            let textSize = text.size(withAttributes: pencilAttributes)
+                            let x = gridOrigin.x + CGFloat(col)*d + CGFloat(c)*s + 0.5*(s - textSize.width)
+                            let y = gridOrigin.y + CGFloat(row)*d + CGFloat(r)*s + 0.5*(s - textSize.height)
+                            let textRect = CGRect(x: x, y: y, width: textSize.width, height: textSize.height)
+                            text.draw(in: textRect, withAttributes: pencilAttributes)
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }

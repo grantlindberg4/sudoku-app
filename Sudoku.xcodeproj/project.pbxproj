@@ -15,6 +15,7 @@
 		3438C76620487FBF00A53C91 /* SudokuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438C76520487FBE00A53C91 /* SudokuView.swift */; };
 		3438C76820487FFC00A53C91 /* simple.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3438C76720487FFC00A53C91 /* simple.plist */; };
 		3438C76A2048800A00A53C91 /* hard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3438C7692048800900A53C91 /* hard.plist */; };
+		3440A0B020572A9A0044B80D /* SudokuBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440A0AF20572A9A0044B80D /* SudokuBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3438C76520487FBE00A53C91 /* SudokuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudokuView.swift; sourceTree = "<group>"; };
 		3438C76720487FFC00A53C91 /* simple.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = simple.plist; sourceTree = "<group>"; };
 		3438C7692048800900A53C91 /* hard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hard.plist; sourceTree = "<group>"; };
+		3440A0AF20572A9A0044B80D /* SudokuBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudokuBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				3438C75320487E9800A53C91 /* AppDelegate.swift */,
+				3440A0AF20572A9A0044B80D /* SudokuBoard.swift */,
 				3438C75520487E9800A53C91 /* ViewController.swift */,
 				3438C75720487E9800A53C91 /* Main.storyboard */,
 				3438C75A20487E9800A53C91 /* Assets.xcassets */,
@@ -150,6 +153,7 @@
 				3438C76620487FBF00A53C91 /* SudokuView.swift in Sources */,
 				3438C75620487E9800A53C91 /* ViewController.swift in Sources */,
 				3438C75420487E9800A53C91 /* AppDelegate.swift in Sources */,
+				3440A0B020572A9A0044B80D /* SudokuBoard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +294,7 @@
 				DEVELOPMENT_TEAM = 7BP6R5JKT8;
 				INFOPLIST_FILE = Sudoku/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = wsuv.Sudoku;
+				PRODUCT_BUNDLE_IDENTIFIER = wsuv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -305,7 +309,7 @@
 				DEVELOPMENT_TEAM = 7BP6R5JKT8;
 				INFOPLIST_FILE = Sudoku/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = wsuv.Sudoku;
+				PRODUCT_BUNDLE_IDENTIFIER = wsuv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
