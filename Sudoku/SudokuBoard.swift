@@ -9,6 +9,7 @@
 import Foundation
 
 class SudokuBoard {
+    
     var board: [[Int]] = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -20,6 +21,25 @@ class SudokuBoard {
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
     ]
+    
+    init(simplePuzzle: String) {
+        var r = 0
+        var c = 0
+        
+        for char in simplePuzzle {
+            if c == 9 {
+                r += 1
+                c = 0
+            }
+            if let value = Int(String(char)) {
+                self.board[r][c] = value
+            }
+            else {
+                self.board[r][c] = 0
+            }
+            c += 1
+        }
+    }
     
     func numberAt(row: Int, column: Int) -> Int {
         return self.board[row][column]

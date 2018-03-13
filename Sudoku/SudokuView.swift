@@ -178,5 +178,4 @@ class SudokuView: UIView {
             }
         }
     }
-
 }

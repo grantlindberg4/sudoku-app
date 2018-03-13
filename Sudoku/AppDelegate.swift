@@ -10,13 +10,20 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    lazy var simplePuzzles = self.getPuzzles("simple")
 
     var window: UIWindow?
     var sudoku: SudokuBoard?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        self.sudoku = SudokuBoard()
+        
+        let i = Int(arc4random_uniform(UInt32(simplePuzzles.count)))
+        
+        let simplePuzzle = simplePuzzles[i]
+        
+        self.sudoku = SudokuBoard(simplePuzzle: simplePuzzle)
         
         return true
     }
@@ -42,7 +49,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    func getPuzzles(_ name: String) -> [String] {
+        guard let url = Bundle.main.url(forResource: name, withExtension: "plist") else { return [] }
+        guard let data = try? Data(contentsOf: url) else { return [] }
+        guard let array = try? PropertyListDecoder().decode([String].self, from: data) else { return [] }
+        
+        return array
+    }
 }
 
