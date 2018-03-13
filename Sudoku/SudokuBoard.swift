@@ -8,19 +8,21 @@
 
 import Foundation
 
+struct Cell {
+    var value: Int
+    var isFixed: Bool
+    var isPenciledIn: Bool
+    
+    init(value: Int, isFixed: Bool, isPenciledIn: Bool) {
+        self.value = value
+        self.isFixed = isFixed
+        self.isPenciledIn = isPenciledIn
+    }
+}
+
 class SudokuBoard {
     
-    var board: [[Int]] = [
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    ]
+    var board: [[Cell]] = Array(repeating: Array(repeating: Cell(value: 0, isFixed: true, isPenciledIn: false), count: 9), count: 9)
     
     init(simplePuzzle: String) {
         var r = 0
@@ -32,21 +34,21 @@ class SudokuBoard {
                 c = 0
             }
             if let value = Int(String(char)) {
-                self.board[r][c] = value
+                self.board[r][c] = Cell(value: value, isFixed: true, isPenciledIn: false)
             }
             else {
-                self.board[r][c] = 0
+                self.board[r][c] = Cell(value: 0, isFixed: true, isPenciledIn: false)
             }
             c += 1
         }
     }
     
     func numberAt(row: Int, column: Int) -> Int {
-        return self.board[row][column]
+        return self.board[row][column].value
     }
     
     func numberIsFixedAt(row: Int, column: Int) -> Bool {
-        return true
+        return self.board[row][column].isFixed
     }
     
     func isConflictingEntryAt(row: Int, column: Int) -> Bool {
@@ -54,10 +56,10 @@ class SudokuBoard {
     }
     
     func anyPencilSetAt(row: Int, column: Int) -> Bool {
-        return false
+        return self.board[row][column].isPenciledIn
     }
     
     func isSetPencil(_ n: Int, row: Int, column: Int) -> Bool {
-        return false
+        return self.anyPencilSetAt(row: row, column: column) && self.board[row][column].value == n
     }
 }
