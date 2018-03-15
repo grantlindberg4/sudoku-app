@@ -293,6 +293,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xfl-5F-7e5"/>
                     </view>
+                    <connections>
+                        <outlet property="sudokuView" destination="kea-IO-BqS" id="GOf-O8-C0T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="VvW-0R-HBX">

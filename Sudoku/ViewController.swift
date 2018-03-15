@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -22,13 +22,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var sudokuView: SudokuView!
+    
     var pencilEnabled: Bool = false
     
     @IBAction func pencilPressed(_ sender: UIButton) {
         pencilEnabled = !pencilEnabled
         sender.isSelected = pencilEnabled
     }
-    
     
     @IBAction func digitPressed(_ sender: UIButton) {
         let value = sender.tag
@@ -46,6 +47,9 @@ class ViewController: UIViewController {
             else {
                 puzzle?.setNumberAt(row: r, column: c, value: value)
             }
+            
+            puzzle?.selected = (-1, -1)
+            sudokuView.setNeedsDisplay()
         }
     }
 }
