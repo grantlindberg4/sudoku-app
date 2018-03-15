@@ -24,6 +24,8 @@ class SudokuBoard {
     
     var board: [[Cell]] = Array(repeating: Array(repeating: Cell(value: 0, isFixed: true, isPenciledIn: false), count: 9), count: 9)
     
+    var selected = (-1, -1)
+    
     init(simplePuzzle: String) {
         var r = 0
         var c = 0
@@ -37,10 +39,20 @@ class SudokuBoard {
                 self.board[r][c] = Cell(value: value, isFixed: true, isPenciledIn: false)
             }
             else {
-                self.board[r][c] = Cell(value: 0, isFixed: true, isPenciledIn: false)
+                self.board[r][c] = Cell(value: 0, isFixed: false, isPenciledIn: false)
             }
             c += 1
         }
+    }
+    
+    func clearNumberAt(row: Int, column: Int) {
+        self.board[row][column].value = 0
+        self.board[row][column].isPenciledIn = false
+    }
+    
+    func setNumberAt(row: Int, column: Int, value: Int) {
+        self.board[row][column].value = value
+        self.board[row][column].isPenciledIn = true
     }
     
     func numberAt(row: Int, column: Int) -> Int {

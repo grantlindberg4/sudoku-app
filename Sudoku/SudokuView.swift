@@ -43,6 +43,7 @@ class SudokuView: UIView {
                 if (row != selected.row || col != selected.column) {  // and not already selected
                     selected.row = row                                // then select cell
                     selected.column = col
+                    puzzle!.selected = (selected.row, selected.column)
                     setNeedsDisplay()                                 // request redraw
                 }
             }
