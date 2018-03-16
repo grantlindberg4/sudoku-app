@@ -63,65 +63,8 @@ class SudokuBoard {
         return self.board[row][column].isFixed
     }
     
-    func entryConflictInRow(row: Int) -> Bool {
-        for value in 1 ..< 9 {
-            for c in 0 ..< 9 {
-                if self.selected == (row, c) {
-                    continue
-                }
-                if self.numberAt(row: row, column: c) == value {
-                    return true
-                }
-            }
-        }
-        
-        return false
-    }
-    
-    func entryConflictInColumn(column: Int) -> Bool {
-        for value in 1 ..< 9 {
-            for r in 0 ..< 9 {
-                if self.selected == (r, column) {
-                    continue
-                }
-                if self.numberAt(row: r, column: column) == value {
-                    return true
-                }
-            }
-        }
-        
-        return false
-    }
-    
-    func entryConflictInGrid(row: Int, column: Int) -> Bool {
-        for value in 1 ..< 9 {
-            for r in row-2 ..< row+2 {
-                if r < 0 || r >= 9 {
-                    continue
-                }
-                for c in column-2 ..< column+2 {
-                    if c < 0 || c >= 9 {
-                        continue
-                    }
-                    
-                    if self.selected == (r, c) {
-                        continue
-                    }
-                    
-                    if self.numberAt(row: r, column: c) == value {
-                        return true
-                    }
-                }
-            }
-        }
-        
-        return false
-    }
-    
     func isConflictingEntryAt(row: Int, column: Int) -> Bool {
-        return self.entryConflictInRow(row: row) ||
-               self.entryConflictInColumn(column: column) ||
-               self.entryConflictInGrid(row: row, column: column)
+        return false
     }
     
     func anyPencilSetAt(row: Int, column: Int) -> Bool {

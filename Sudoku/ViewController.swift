@@ -47,9 +47,8 @@ class ViewController: UIViewController {
             else {
                 puzzle?.setNumberAt(row: r, column: c, value: value)
             }
-            
-            puzzle?.selected = (-1, -1)
-            sudokuView.setNeedsDisplay()
         }
+        
+        sudokuView.setNeedsDisplay()
     }
 }
