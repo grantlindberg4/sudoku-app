@@ -32,6 +32,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func digitPressed(_ sender: UIButton) {
+        if !pencilEnabled {
+            return
+        }
         let value = sender.tag
         let puzzle = appDelegate.sudoku
         
