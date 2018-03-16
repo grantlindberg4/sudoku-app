@@ -51,4 +51,10 @@ class ViewController: UIViewController {
         
         sudokuView.setNeedsDisplay()
     }
+    
+    @IBAction func clearButtonPressed(_ sender: UIButton) {
+        let puzzle = appDelegate.sudoku
+        puzzle!.clearBoard()
+        sudokuView.setNeedsDisplay()
+    }
 }
