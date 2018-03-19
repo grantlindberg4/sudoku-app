@@ -73,8 +73,80 @@ class SudokuBoard {
         return self.board[row][column].isFixed
     }
     
-    func isConflictingEntryAt(row: Int, column: Int) -> Bool {
+    func conflictingEntryInRow(row: Int, column: Int) -> Bool {
+        for c in 0 ..< 9 {
+            if column == c {
+                continue
+            }
+            
+            if self.numberAt(row: row, column: c) == self.numberAt(row: row, column: column) {
+                return true
+            }
+        }
+        
         return false
+    }
+    
+    func conflictingEntryInColumn(row: Int, column: Int) -> Bool {
+        for r in 0 ..< 9 {
+            if row == r {
+                continue
+            }
+            
+            if self.numberAt(row: r, column: column) == self.numberAt(row: row, column: column) {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    func conflictingEntryInGrid(row: Int, column: Int) -> Bool {
+        var rStart = -1
+        var cStart = -1
+        
+        switch row {
+        case 0 ... 2:
+            rStart = 0
+        case 3 ... 6:
+            rStart = 3
+        case 6 ... 9:
+            rStart = 6
+        default:
+            print("God help us")
+            return false
+        }
+        
+        switch column {
+        case 0 ... 2:
+            cStart = 0
+        case 3 ... 6:
+            cStart = 3
+        case 6 ... 9:
+            cStart = 6
+        default:
+            print("God help us")
+            return false
+        }
+        
+        for r in rStart ..< rStart+3 {
+            for c in cStart ..< cStart+3 {
+                if r == row && c == column {
+                    continue
+                }
+                if self.numberAt(row: r, column: c) == self.numberAt(row: row, column: column) {
+                    return true
+                }
+            }
+        }
+        
+        return false
+    }
+    
+    func isConflictingEntryAt(row: Int, column: Int) -> Bool {
+        return self.conflictingEntryInRow(row: row, column: column) ||
+               self.conflictingEntryInColumn(row: row, column: column) ||
+               self.conflictingEntryInGrid(row: row, column: column)
     }
     
     func anyPencilSetAt(row: Int, column: Int) -> Bool {
