@@ -103,7 +103,7 @@ class SudokuBoard {
         switch location {
         case 0 ... 2:
             return 0
-        case 3 ... 6:
+        case 3 ... 5:
             return 3
         case 6 ... 9:
             return 6

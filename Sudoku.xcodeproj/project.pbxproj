@@ -16,6 +16,7 @@
 		3438C76820487FFC00A53C91 /* simple.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3438C76720487FFC00A53C91 /* simple.plist */; };
 		3438C76A2048800A00A53C91 /* hard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3438C7692048800900A53C91 /* hard.plist */; };
 		3440A0B020572A9A0044B80D /* SudokuBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440A0AF20572A9A0044B80D /* SudokuBoard.swift */; };
+		34C9046220617DB500BEC3F5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9046120617DB500BEC3F5 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		3438C76720487FFC00A53C91 /* simple.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = simple.plist; sourceTree = "<group>"; };
 		3438C7692048800900A53C91 /* hard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hard.plist; sourceTree = "<group>"; };
 		3440A0AF20572A9A0044B80D /* SudokuBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudokuBoard.swift; sourceTree = "<group>"; };
+		34C9046120617DB500BEC3F5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				3440A0AF20572A9A0044B80D /* SudokuBoard.swift */,
 				3438C75520487E9800A53C91 /* ViewController.swift */,
 				3438C75720487E9800A53C91 /* Main.storyboard */,
+				34C9046120617DB500BEC3F5 /* MainViewController.swift */,
 				3438C75A20487E9800A53C91 /* Assets.xcassets */,
 				3438C75C20487E9800A53C91 /* LaunchScreen.storyboard */,
 				3438C75F20487E9800A53C91 /* Info.plist */,
@@ -154,6 +157,7 @@
 				3438C75620487E9800A53C91 /* ViewController.swift in Sources */,
 				3438C75420487E9800A53C91 /* AppDelegate.swift in Sources */,
 				3440A0B020572A9A0044B80D /* SudokuBoard.swift in Sources */,
+				34C9046220617DB500BEC3F5 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
