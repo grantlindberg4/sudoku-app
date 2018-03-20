@@ -12,18 +12,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     lazy var simplePuzzles = self.getPuzzles("simple")
+    lazy var hardPuzzles = self.getPuzzles("hard")
 
     var window: UIWindow?
     var sudoku: SudokuBoard?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        let i = Int(arc4random_uniform(UInt32(simplePuzzles.count)))
-        
-        let simplePuzzle = simplePuzzles[i]
-        
-        self.sudoku = SudokuBoard(simplePuzzle: simplePuzzle)
         
         return true
     }
@@ -56,6 +51,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let array = try? PropertyListDecoder().decode([String].self, from: data) else { return [] }
         
         return array
+    }
+    
+    func selectRandomPuzzle(puzzles: [String]) -> String {
+        let i = Int(arc4random_uniform(UInt32(puzzles.count)))
+        return puzzles[i]
     }
 }
 

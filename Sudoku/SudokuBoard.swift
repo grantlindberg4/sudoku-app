@@ -24,11 +24,11 @@ class SudokuBoard {
     
     var board: [[Cell]] = Array(repeating: Array(repeating: Cell(value: 0, isFixed: true, isPenciledIn: false), count: 9), count: 9)
     
-    init(simplePuzzle: String) {
+    init(puzzle: String) {
         var r = 0
         var c = 0
         
-        for char in simplePuzzle {
+        for char in puzzle {
             if c == 9 {
                 r += 1
                 c = 0
