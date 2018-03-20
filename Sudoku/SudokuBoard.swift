@@ -24,8 +24,6 @@ class SudokuBoard {
     
     var board: [[Cell]] = Array(repeating: Array(repeating: Cell(value: 0, isFixed: true, isPenciledIn: false), count: 9), count: 9)
     
-    var selected = (-1, -1)
-    
     init(simplePuzzle: String) {
         var r = 0
         var c = 0
@@ -101,33 +99,23 @@ class SudokuBoard {
         return false
     }
     
+    func findSubgrid(location: Int) -> Int {
+        switch location {
+        case 0 ... 2:
+            return 0
+        case 3 ... 6:
+            return 3
+        case 6 ... 9:
+            return 6
+        default:
+            print("God help us")
+            return -1
+        }
+    }
+    
     func conflictingEntryInGrid(row: Int, column: Int) -> Bool {
-        var rStart = -1
-        var cStart = -1
-        
-        switch row {
-        case 0 ... 2:
-            rStart = 0
-        case 3 ... 6:
-            rStart = 3
-        case 6 ... 9:
-            rStart = 6
-        default:
-            print("God help us")
-            return false
-        }
-        
-        switch column {
-        case 0 ... 2:
-            cStart = 0
-        case 3 ... 6:
-            cStart = 3
-        case 6 ... 9:
-            cStart = 6
-        default:
-            print("God help us")
-            return false
-        }
+        let rStart = findSubgrid(location: row)
+        let cStart = findSubgrid(location: column)
         
         for r in rStart ..< rStart+3 {
             for c in cStart ..< cStart+3 {

@@ -38,8 +38,8 @@ class ViewController: UIViewController {
         let value = sender.tag
         let puzzle = appDelegate.sudoku
         
-        let r = puzzle!.selected.0
-        let c = puzzle!.selected.1
+        let r = sudokuView.selected.row
+        let c = sudokuView.selected.column
         
         if r != -1 && c != -1 {
             if puzzle!.anyPencilSetAt(row: r, column: c) {
