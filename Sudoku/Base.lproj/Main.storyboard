@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yBe-0B-xeG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LBY-Fb-U4f">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -34,17 +34,18 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="nFr-LS-mdS" kind="show" id="vFS-KW-QEa"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="uR6-FL-auC"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="brR-fk-k2K"/>
                     </view>
+                    <navigationItem key="navigationItem" id="d7U-dE-zI3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKB-Ge-h5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-724" y="118.29085457271366"/>
+            <point key="canvasLocation" x="-384.80000000000001" y="118.29085457271366"/>
         </scene>
         <!--Puzzle-->
         <scene sceneID="tne-QT-ifu">
@@ -345,25 +346,25 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1348" y="30.134932533733135"/>
+            <point key="canvasLocation" x="487.19999999999999" y="117.39130434782609"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="lCo-wD-gHS">
+        <scene sceneID="cnA-3r-KiW">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nFr-LS-mdS" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LBY-Fb-U4f" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7eh-b0-446">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="exd-b9-l7y">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="yMo-VP-0Bm"/>
+                        <segue destination="yBe-0B-xeG" kind="relationship" relationship="rootViewController" id="I07-zv-pTb"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kzb-Ow-p4X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hrF-Ff-IlB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="449" y="118"/>
+            <point key="canvasLocation" x="-1311" y="117"/>
         </scene>
     </scenes>
     <resources>

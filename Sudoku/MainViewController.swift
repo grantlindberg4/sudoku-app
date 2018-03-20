@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 class MainViewController {
-//    @IBAction func unwind(segue: UIStoryboardSegue) {
+    @IBAction func myUnwindFunction(unwindSegue: UIStoryboardSegue) {
         // Does nothing
-//    }
+    }
 }
