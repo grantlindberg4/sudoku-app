@@ -12,11 +12,13 @@ struct Cell {
     var value: Int
     var isFixed: Bool
     var isPenciledIn: Bool
+    var penciledInValues: [Int]
     
     init(value: Int, isFixed: Bool, isPenciledIn: Bool) {
         self.value = value
         self.isFixed = isFixed
         self.isPenciledIn = isPenciledIn
+        self.penciledInValues = []
     }
 }
 
@@ -46,6 +48,7 @@ class SudokuBoard {
     func clearNumberAt(row: Int, column: Int) {
         self.board[row][column].value = 0
         self.board[row][column].isPenciledIn = false
+        self.board[row][column].penciledInValues.removeAll()
     }
     
     func clearBoard() {
@@ -61,7 +64,7 @@ class SudokuBoard {
     func clearConflictingCells() {
         for r in 0 ..< 9 {
             for c in 0 ..< 9 {
-                if !self.numberIsFixedAt(row: r, column: c) && self.isConflictingEntryAt(row: r, column: c) {
+                if !self.numberIsFixedAt(row: r, column: c) && !self.anyPencilSetAt(row: r, column: c) && self.isConflictingEntryAt(row: r, column: c) {
                     self.clearNumberAt(row: r, column: c)
                 }
             }
@@ -147,10 +150,20 @@ class SudokuBoard {
     }
     
     func anyPencilSetAt(row: Int, column: Int) -> Bool {
-        return false
+        return !self.board[row][column].penciledInValues.isEmpty
     }
     
     func isSetPencil(_ n: Int, row: Int, column: Int) -> Bool {
-        return false
+        return self.board[row][column].penciledInValues.contains(n)
+    }
+    
+    func appendToPenciledInValues(_ n: Int, row: Int, column: Int) {
+        self.board[row][column].penciledInValues.append(n)
+    }
+    
+    func removeFromPenciledInValues(_ n: Int, row: Int, column: Int) {
+        if let i = self.board[row][column].penciledInValues.index(of: n) {
+            self.board[row][column].penciledInValues.remove(at: i)
+        }
     }
 }

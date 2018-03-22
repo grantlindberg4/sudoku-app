@@ -38,12 +38,22 @@ class ViewController: UIViewController {
         let r = sudokuView.selected.row
         let c = sudokuView.selected.column
         
-        if puzzle!.numberAt(row: r, column: c) == 0 {
-            puzzle?.setNumberAt(row: r, column: c, value: value)
+        if pencilEnabled {
+            if puzzle!.isSetPencil(value, row: r, column: c) {
+                puzzle!.removeFromPenciledInValues(value, row: r, column: c)
+            }
+            else {
+                puzzle!.appendToPenciledInValues(value, row: r, column: c)
+            }
         }
         else {
-            if puzzle!.numberAt(row: r, column: c) == value {
-                puzzle?.clearNumberAt(row: r, column: c)
+            if puzzle!.numberAt(row: r, column: c) == 0 {
+                puzzle?.setNumberAt(row: r, column: c, value: value)
+            }
+            else {
+                if puzzle!.numberAt(row: r, column: c) == value {
+                    puzzle?.clearNumberAt(row: r, column: c)
+                }
             }
         }
         
