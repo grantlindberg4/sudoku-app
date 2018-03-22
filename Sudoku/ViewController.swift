@@ -32,9 +32,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func digitPressed(_ sender: UIButton) {
-        if !pencilEnabled {
-            return
-        }
         let value = sender.tag
         let puzzle = appDelegate.sudoku
         
@@ -55,9 +52,11 @@ class ViewController: UIViewController {
         sudokuView.setNeedsDisplay()
     }
     
-    @IBAction func clearButtonPressed(_ sender: UIButton) {
+    @IBAction func clearCellButtonPressed(_ sender: UIButton) {
         let puzzle = appDelegate.sudoku
-        puzzle!.clearBoard()
+        let r = sudokuView.selected.row
+        let c = sudokuView.selected.column
+        puzzle!.clearNumberAt(row: r, column: c)
         sudokuView.setNeedsDisplay()
     }
 

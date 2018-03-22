@@ -209,7 +209,7 @@
                                             </attributedString>
                                         </state>
                                         <connections>
-                                            <action selector="clearButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U4J-4M-YeB"/>
+                                            <action selector="clearCellButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pse-dR-8kS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3l9-v2-m33" userLabel="7">
