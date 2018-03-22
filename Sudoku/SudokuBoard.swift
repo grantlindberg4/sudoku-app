@@ -51,7 +51,7 @@ class SudokuBoard {
     func clearBoard() {
         for r in 0 ..< 9 {
             for c in 0 ..< 9 {
-                if self.anyPencilSetAt(row: r, column: c) {
+                if !self.numberIsFixedAt(row: r, column: c) {
                     self.clearNumberAt(row: r, column: c)
                 }
             }
@@ -61,7 +61,7 @@ class SudokuBoard {
     func clearConflictingCells() {
         for r in 0 ..< 9 {
             for c in 0 ..< 9 {
-                if self.anyPencilSetAt(row: r, column: c) && self.isConflictingEntryAt(row: r, column: c) {
+                if !self.numberIsFixedAt(row: r, column: c) && self.isConflictingEntryAt(row: r, column: c) {
                     self.clearNumberAt(row: r, column: c)
                 }
             }
@@ -70,7 +70,6 @@ class SudokuBoard {
     
     func setNumberAt(row: Int, column: Int, value: Int) {
         self.board[row][column].value = value
-        self.board[row][column].isPenciledIn = true
     }
     
     func numberAt(row: Int, column: Int) -> Int {
@@ -148,10 +147,10 @@ class SudokuBoard {
     }
     
     func anyPencilSetAt(row: Int, column: Int) -> Bool {
-        return self.board[row][column].isPenciledIn
+        return false
     }
     
     func isSetPencil(_ n: Int, row: Int, column: Int) -> Bool {
-        return self.anyPencilSetAt(row: row, column: column) && self.board[row][column].value == n
+        return false
     }
 }
