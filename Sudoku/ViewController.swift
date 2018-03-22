@@ -69,12 +69,33 @@ class ViewController: UIViewController {
                                                     All progress will be lost
                                                """,
                                       preferredStyle: .alert)
+        
         let confirm = UIAlertAction(title: "Confirm", style: .default) { (action) in
             self.performSegue(withIdentifier: "unwindToMainMenu", sender: self)
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         
         alert.addAction(confirm)
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func menuButtonPressed(_ sender: UIButton) {
+        let puzzle = appDelegate.sudoku
+        
+        let alert = UIAlertController(title: "Menu", message: "Actions to perform on the puzzle", preferredStyle: .actionSheet)
+        
+        let clearConflictingCells = UIAlertAction(title: "Clear all conflicting cells", style: .default)
+        let clearAllCells = UIAlertAction(title: "Clear all cells", style: .default) { (action) in
+            puzzle!.clearBoard()
+            self.sudokuView.setNeedsDisplay()
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(clearConflictingCells)
+        alert.addAction(clearAllCells)
         alert.addAction(cancel)
         
         self.present(alert, animated: true, completion: nil)
