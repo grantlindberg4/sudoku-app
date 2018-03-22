@@ -22,8 +22,8 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func myUnwindFunction(unwindSegue: UIStoryboardSegue) {
-        // Connect to 'Main Menu' button and save to disk
+    @IBAction func unwindToMainMenu(unwindSegue: UIStoryboardSegue) {
+        // Return to main menu
     }
     
     @IBAction func simpleGameButtonPressed(_ sender: UIButton) {

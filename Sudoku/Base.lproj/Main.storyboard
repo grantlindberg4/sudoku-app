@@ -347,13 +347,21 @@
                         <viewLayoutGuide key="safeArea" id="Xfl-5F-7e5"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Puzzle" id="j17-6s-ctQ"/>
+                    <navigationItem key="navigationItem" title="Puzzle" id="j17-6s-ctQ">
+                        <barButtonItem key="rightBarButtonItem" title="Leave Puzzle" id="71m-9R-b4w" userLabel="LeavePuzzleButton">
+                            <connections>
+                                <action selector="leavePuzzleButtonPressed:" destination="BYZ-38-t0r" id="Yw2-Gf-3Mz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="sudokuView" destination="kea-IO-BqS" id="GOf-O8-C0T"/>
+                        <segue destination="kjC-w9-caL" kind="unwind" identifier="unwindToMainMenu" unwindAction="unwindToMainMenuWithUnwindSegue:" id="PnZ-RP-4ps"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="kjC-w9-caL" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="VvW-0R-HBX">
                     <connections>
                         <action selector="handleTap:" destination="kea-IO-BqS" id="XzS-CJ-6YH"/>

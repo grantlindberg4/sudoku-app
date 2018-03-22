@@ -60,4 +60,24 @@ class ViewController: UIViewController {
         puzzle!.clearBoard()
         sudokuView.setNeedsDisplay()
     }
+
+
+    @IBAction func leavePuzzleButtonPressed(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Leave game",
+                                      message: """
+                                                    Are you sure you wish to leave the game?
+                                                    All progress will be lost
+                                               """,
+                                      preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "Confirm", style: .default) { (action) in
+            self.performSegue(withIdentifier: "unwindToMainMenu", sender: self)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(confirm)
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
+
