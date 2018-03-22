@@ -58,6 +58,16 @@ class SudokuBoard {
         }
     }
     
+    func clearConflictingCells() {
+        for r in 0 ..< 9 {
+            for c in 0 ..< 9 {
+                if self.anyPencilSetAt(row: r, column: c) && self.isConflictingEntryAt(row: r, column: c) {
+                    self.clearNumberAt(row: r, column: c)
+                }
+            }
+        }
+    }
+    
     func setNumberAt(row: Int, column: Int, value: Int) {
         self.board[row][column].value = value
         self.board[row][column].isPenciledIn = true

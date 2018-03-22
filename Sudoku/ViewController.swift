@@ -87,7 +87,10 @@ class ViewController: UIViewController {
         
         let alert = UIAlertController(title: "Menu", message: "Actions to perform on the puzzle", preferredStyle: .actionSheet)
         
-        let clearConflictingCells = UIAlertAction(title: "Clear all conflicting cells", style: .default)
+        let clearConflictingCells = UIAlertAction(title: "Clear all conflicting cells", style: .default) { (action) in
+            puzzle!.clearConflictingCells()
+            self.sudokuView.setNeedsDisplay()
+        }
         let clearAllCells = UIAlertAction(title: "Clear all cells", style: .default) { (action) in
             puzzle!.clearBoard()
             self.sudokuView.setNeedsDisplay()
