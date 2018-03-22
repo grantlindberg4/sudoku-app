@@ -34,7 +34,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="simpleGame" id="uR6-FL-auC"/>
+                                    <action selector="simpleGameButtonPressed:" destination="yBe-0B-xeG" eventType="touchUpInside" id="2ah-z5-HZU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Pj-rB-Vvl" userLabel="NewHardGameButton">
@@ -45,7 +45,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="hardGame" id="fG0-Ja-WNM"/>
+                                    <action selector="hardGameButtonPressed:" destination="yBe-0B-xeG" eventType="touchUpInside" id="xcy-4B-hxt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -53,6 +53,9 @@
                         <viewLayoutGuide key="safeArea" id="brR-fk-k2K"/>
                     </view>
                     <navigationItem key="navigationItem" title="Main Menu" id="d7U-dE-zI3" userLabel="MainMenu"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toGame" id="VtD-W4-mUy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKB-Ge-h5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -382,7 +385,4 @@
         <image name="darksquare" width="216" height="216"/>
         <image name="square" width="216" height="216"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="uR6-FL-auC"/>
-    </inferredMetricsTieBreakers>
 </document>

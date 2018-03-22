@@ -23,19 +23,46 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func myUnwindFunction(unwindSegue: UIStoryboardSegue) {
-        // Does nothing
+        // Connect to 'Main Menu' button and save to disk
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "simpleGame"?:
-            let puzzle = appDelegate.selectRandomPuzzle(puzzles: appDelegate.simplePuzzles)
-            appDelegate.sudoku = SudokuBoard(puzzle: puzzle)
-        case "hardGame"?:
-            let puzzle = appDelegate.selectRandomPuzzle(puzzles: appDelegate.hardPuzzles)
-            appDelegate.sudoku = SudokuBoard(puzzle: puzzle)
-        default:
-            print("Unable to get puzzle!")
+    @IBAction func simpleGameButtonPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "New simple game",
+                                      message: """
+                                                    Are you sure you wish to start a new game?
+                                                    Previous progress will be overwritten
+                                               """,
+                                      preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "Confirm", style: .default) { (action) in
+            let puzzle = self.appDelegate.selectRandomPuzzle(puzzles: self.appDelegate.simplePuzzles)
+            self.appDelegate.sudoku = SudokuBoard(puzzle: puzzle)
+            self.performSegue(withIdentifier: "toGame", sender: action)
         }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(confirm)
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func hardGameButtonPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "New hard game",
+                                      message: """
+                                                    Are you sure you wish to start a new game?
+                                                    Previous progress will be overwritten
+                                               """,
+                                      preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "Confirm", style: .default) { (action) in
+            let puzzle = self.appDelegate.selectRandomPuzzle(puzzles: self.appDelegate.hardPuzzles)
+            self.appDelegate.sudoku = SudokuBoard(puzzle: puzzle)
+            self.performSegue(withIdentifier: "toGame", sender: action)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(confirm)
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }
